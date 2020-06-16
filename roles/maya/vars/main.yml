@@ -1,0 +1,14 @@
+homebrew_packages:
+- rsync
+- tree
+- watch
+- wget
+- mas
+
+homebrew_cask_packages:
+- docker
+- firefox
+- iterm2
+- sublime-text
+- vagrant
+- spotify

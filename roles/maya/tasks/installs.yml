@@ -1,0 +1,61 @@
+- name: Check if Homebrew is already installed
+  stat:
+    path: /usr/local/bin/brew
+  register: b
+  tags:
+  - brew
+
+- name: Install Homebrew
+  shell: |
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh --output ./brew_install.sh
+    chmod +x brew_install.sh
+    ./brew_install.sh
+  when: not b.stat.exists
+  tags:
+  - brew
+
+- name: Update homebrew
+  homebrew:
+    name: git
+    state: latest
+    update_homebrew: true
+  tags:
+  - brew
+
+- name: Install homebrew packages
+  homebrew:
+    name: '{{ item }}'
+    state: latest
+  loop: '{{ homebrew_packages }}'
+  tags:
+  - brew
+
+- name: Install homebrew cask packages
+  homebrew_cask:
+    name: '{{ item }}'
+    state: installed
+  loop: '{{ homebrew_cask_packages }}'
+  tags:
+  - brew
+
+- name: homebrew cleanup
+  command: brew cleanup
+
+- name: Install Magnet from Mac store
+  command: mas install 441258766
+  tags:
+  - mas
+
+- name: Check if Menumeters is installed 
+  stat:
+    path: ~/Applications/MenuMeters.app
+  register: m
+
+
+- name: Install menumeters
+  shell: |
+   curl -fsSL  https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/zips/MenuMeters_latest.zip --output ~/Downloads/MenuMeters_latest.zip
+   pushd ~/Downloads/ &&  unzip MenuMeters_latest.zip
+   mv MenuMeters.app/ ~/Applications/
+  when: not m.stat.exists
+

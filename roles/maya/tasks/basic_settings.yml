@@ -1,0 +1,20 @@
+- name: ssh dir stat
+  stat:
+    path: ~/.ssh
+  register: ssh_dir
+
+- name: ssh dir exists
+  when: not ssh_dir.stat.exists
+  file:
+    path: ~/.ssh
+    state: directory
+
+- name: create ssh key
+  when: not ssh_dir.stat.exists
+  command: pushd ~/.ssh && ssh-keygen -t rsa
+
+- name: add github host
+  when: not ssh_dir.stat.exists
+  command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+
