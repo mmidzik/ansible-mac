@@ -1,4 +1,5 @@
---------
+Ansible setup for mac
+
 1. `xcode-select --install`
 2. `easy_install --user pip`
 3. `pip install --user ansible`

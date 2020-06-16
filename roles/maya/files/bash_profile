@@ -1,0 +1,22 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1
+source ~/scripts/git-completion.bash
+export CLICOLOR=1
+export LSCOLORS=CxFxBxDxfxegedabagacad
+export PS1="\[\033[0;32m\]\u:\[\033[0;36m\]\w\[\033[m\] ▶ "
+stty -ixon
+
+export PATH=${PATH}:/usr/local/bin:~/Library/Python/2.7/bin
+export PATH="/usr/local/bin/python3/bin:$PATH"
+export PATH="/usr/local/opt/go@1.13/bin:$PATH"
+
+export GOPATH=/Users/maya/go
+
+alias dockerstopall='docker stop $(docker ps -aq)'
+alias ls='ls -GFh'
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

@@ -4,6 +4,9 @@ homebrew_packages:
 - watch
 - wget
 - mas
+- go@1.13
+- kubectl
+- jq
 
 homebrew_cask_packages:
 - docker
@@ -12,3 +15,5 @@ homebrew_cask_packages:
 - sublime-text
 - vagrant
 - spotify
+- macdown
+- google-cloud-sdk

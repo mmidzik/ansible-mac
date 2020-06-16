@@ -17,4 +17,26 @@
   when: not ssh_dir.stat.exists
   command: ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+- name: scripts dir stat
+  stat:
+    path: ~/scripts
+  register: scrips_dir
+
+- name: scripts dir exists
+  when: not scrips_dir.stat.exists
+  file:
+    path: ~/scripts
+    state: directory
+
+- name: add git completion script
+  copy:
+    src: git-completion.bash
+    dest: ~/scripts/git-completion.bash
+
+- name: add bash profile
+  copy:
+    src: bash_profile
+    dest: ~/.bash_profile
+
+
 

@@ -4,3 +4,5 @@
 - name: Install things
   import_tasks: installs.yml
 
+- name: App settings
+  import_tasks: app_settings.yml

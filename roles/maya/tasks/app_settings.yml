@@ -1,11 +1,4 @@
-- name: iTerm custom settings file
-  osx_defaults:
-    domain: com.googlecode.iterm2
-    key: PrefsCustomFolder
-    type: string
-    value: "{{ ansible_env.PWD }}/roles/adam_mac/files"
-
-- name: Sublime Text 3 settings
-  git:
-    repo: git@github.com:adamchainz/sublime_text_3_settings.git
-    dest: '~/Library/Application Support/Sublime Text 3/Packages/User'
+- name: iterm profile setup
+  copy:
+    src: iterm_profile.json
+    dest: ~/Library/Application Support/iTerm2/DynamicProfiles/iterm_profile.json
