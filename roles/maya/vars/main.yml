@@ -8,6 +8,7 @@ homebrew_packages:
 - kubectl
 - jq
 - coreutils
+- postgres
 
 homebrew_cask_packages:
 - docker
