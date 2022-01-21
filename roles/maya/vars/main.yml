@@ -4,18 +4,17 @@ homebrew_packages:
 - watch
 - wget
 - mas
-- go@1.13
+- goenv
 - kubectl
 - jq
 - coreutils
-- postgres
+- pyenv
 
 homebrew_cask_packages:
 - docker
 - firefox
 - iterm2
 - sublime-text
-- vagrant
 - spotify
 - macdown
 - google-cloud-sdk
