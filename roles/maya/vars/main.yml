@@ -12,7 +12,6 @@ homebrew_packages:
 
 homebrew_cask_packages:
 - docker
-- firefox
 - iterm2
 - sublime-text
 - spotify
